@@ -1,0 +1,78 @@
+Q.1] package assingment;
+
+    public class Nagsen1 {
+    public static void main(String args[])
+
+    {
+        int n = 5;
+        int[] array = { 10, 3, 5, 6, 2 };
+
+        ques7a ob = new ques7a();
+        long[] ans = new long[n];
+        ans = ob.pr(array, n);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(ans[i] + " ");
+        }
+    }
+
+    public static long[] pr(int a[], int n) {
+        long prod = 1;
+        long flag = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            if (a[i] == 0)
+                flag++;
+            else
+                prod *= a[i];
+        }
+
+        long arr[] = new long[n];
+        for (int i = 0; i < n; i++) {
+
+            if (flag > 1) {
+                arr[i] = 0;
+            }
+
+            else if (flag == 0)
+                arr[i] = (prod / a[i]);
+
+            else if (flag == 1 && a[i] != 0) {
+                arr[i] = 0;
+            }
+
+            else
+                arr[i] = prod;
+        }
+        return arr;
+    }
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Q.2] package assingment;
+
+   public class Nagsen2 {
+
+    static int findPeak(int arr[], int n) {
+        if (n == 1)
+            return 0;
+        if (arr[0] >= arr[1])
+            return 0;
+        if (arr[n - 1] >= arr[n - 2])
+            return n - 1;
+        for (int i = 1; i < n - 1; i++) {
+
+            if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1])
+                return i;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = { 3, 4 };
+        int n = arr.length;
+        System.out.print("peak point is:- " + findPeak(arr, n));
+    }
+}
